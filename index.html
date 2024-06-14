@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Budget Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Manager</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Budget Manager</h1>
+    </header>
+    <main id="content">
+        <section id="add-transaction">
+            <h2>Dodaj Transakcję</h2>
+            <form id="transaction-form">
+                <input type="text" id="description" placeholder="Opis" required>
+                <input type="number" id="amount" placeholder="Kwota" required>
+                <select id="category">
+                    <option value="income">Przychód</option>
+                    <option value="expense">Wydatek</option>
+                </select>
+                <input type="month" id="transaction-month" required>
+                <button type="submit">Dodaj</button>
+            </form>
+        </section>
+
+        <section id="select-month-section">
+            <h2>Miesiąc rozliczeniowy</h2>
+            <label for="select-month">Wybierz miesiąc:</label>
+            <input type="month" id="select-month" required>
+            <button id="select-month-button">Wybierz</button>
+        </section>
+
+        <h2>Transakcje</h2>
+        <section>
+            <table id="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Nazwa transakcji</th>
+                        <th>Kwota</th>
+                        <th>Rodzaj transakcji</th>
+                        <th>Miesiąc</th>
+                    </tr>
+                </thead>
+                <tbody id="transactions-body">
+                   
+                </tbody>
+            </table>
+        </section>
+
+        <section id="budget">
+            <h2>Budżet</h2>
+            <div id="budget-summary">
+                <p>Całkowity Przychód: <span id="total-income">0</span> zł</p>
+                <p>Całkowity Wydatek: <span id="total-expense">0</span> zł</p>
+                <p>Saldo: <span id="balance">0</span> zł</p>
+            </div>
+        </section>
+
+        <section id="reports">
+            <h2>Raport</h2>
+            <canvas id="transactions-chart"></canvas>
+            <button id="print-report-button">Wydrukuj raport</button>
+        </section>
+    </main>
+</body>
+</html>
